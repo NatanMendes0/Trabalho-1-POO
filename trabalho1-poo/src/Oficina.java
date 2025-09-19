@@ -1,7 +1,8 @@
 import java.util.List;
+import java.util.ArrayList;
 
 public class Oficina {
-    private List<OrdemDeServico> ordensServicos;
+    private List<OrdemDeServico> ordensServicos = new ArrayList<>();
 
     // Adiciona uma ordem de serviço à lista
     public void adicionaOS(OrdemDeServico os) {
@@ -53,7 +54,7 @@ public class Oficina {
 
     // Construtor padrão que inicializa a lista de ordens de serviço
     public Oficina() {
-        this.ordensServicos = new java.util.ArrayList<>();
+        this.ordensServicos = new ArrayList<>();
     }
 
     // Construtor que recebe uma lista de ordens de serviço

@@ -3,20 +3,20 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // Criação da Oficina
+        // * Criação da Oficina
         Oficina oficina = new Oficina();
 
-        // Criação dos Serviços
+        // * Criação dos Serviços
         Servico servico1 = new Servico(1, "Troca de óleo", 100.0);
         Servico servico2 = new Servico(2, "Alinhamento", 80.0);
         Servico servico3 = new Servico(3, "Balanceamento", 60.0);
 
-        // Criação dos Clientes
+        // * Criação dos Clientes
         Cliente cliente1 = new Cliente("111.222.333-44", "Maria Silva");
         Cliente cliente2 = new Cliente("222.333.444-55", "Carlos Souza");
         Cliente cliente3 = new Cliente("333.444.555-66", "Ana Lima");
 
-        // Criação das Ordens de Serviço (cada uma com mais de um serviço)
+        // * Criação das Ordens de Serviço (Todas com mais de um serviço)
         List<Servico> lista1 = new ArrayList<>();
         lista1.add(servico1);
         lista1.add(servico2);
@@ -53,5 +53,18 @@ public class App {
         lista6.add(servico3);
         OrdemDeServico ordem6 = new OrdemDeServico(6, cliente3, lista6);
         oficina.adicionaOS(ordem6);
+
+        // * Testes solicitados pelo trabalho
+        // * 1. Buscar uma ordem de serviço pelo código
+        System.out.println("\nBusca OS por código (3): " + oficina.buscaOSCodigo(3));
+
+        // * 2. Buscar uma ordem de serviço pelo CPF do cliente
+        System.out.println("\nBusca OS por CPF (222.333.444-55): " + oficina.buscaOSCPF("222.333.444-55"));
+
+        // * 3. Buscar uma ordem de serviço pelo código do serviço
+        System.out.println("\nBusca OS por código do serviço (1): " + oficina.buscaOSServico(1));
+
+        // * 4. Calcular o faturamento total da oficina
+        System.out.println("\nFaturamento total da oficina: R$ " + oficina.calculaFaturamentoTotal());
     }
 }
